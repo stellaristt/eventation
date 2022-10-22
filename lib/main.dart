@@ -1,4 +1,6 @@
+import 'package:eventation/halaman_login.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,8 +25,25 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.blue,
+        textTheme: GoogleFonts.manropeTextTheme(
+          Theme.of(context).textTheme.copyWith(
+            titleLarge: const TextStyle(
+              fontSize: 24.0,
+              fontWeight: FontWeight.bold,
+            ),
+            bodyMedium: const TextStyle(
+              fontSize: 14.0,
+              fontWeight: FontWeight.normal,
+            ),
+            bodySmall: const TextStyle(
+              fontSize: 12.0,
+              fontWeight: FontWeight.normal,
+            ),
+          ),
+        ),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const Login(),
     );
   }
 }
