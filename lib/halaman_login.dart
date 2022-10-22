@@ -8,7 +8,7 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _loginFormKey = GlobalKey<FormState>();
   bool isRemember = false;
 
   @override
@@ -18,7 +18,7 @@ class _LoginState extends State<Login> {
         child: Padding(
           padding: const EdgeInsets.all(24.0),
           child: Form(
-            key: _formKey,
+            key: _loginFormKey,
             child: Stack(
               children: [
                 Column(
@@ -142,7 +142,7 @@ class _LoginState extends State<Login> {
                             onPressed: () {
                               // Validate will return true if the form is valid, or false if
                               // the form is invalid.
-                              if (_formKey.currentState!.validate()) {
+                              if (_loginFormKey.currentState!.validate()) {
                                 // Process data.
                               }
                             },
@@ -167,7 +167,7 @@ class _LoginState extends State<Login> {
                             onPressed: () {
                               // Validate will return true if the form is valid, or false if
                               // the form is invalid.
-                              if (_formKey.currentState!.validate()) {
+                              if (_loginFormKey.currentState!.validate()) {
                                 // Process data.
                               }
                             },

@@ -1,4 +1,6 @@
 import 'package:eventation/halaman_login.dart';
+import 'package:eventation/halaman_profil.dart';
+import 'package:eventation/halaman_register.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -15,21 +17,20 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
         textTheme: GoogleFonts.manropeTextTheme(
           Theme.of(context).textTheme.copyWith(
             titleLarge: const TextStyle(
               fontSize: 24.0,
               fontWeight: FontWeight.bold,
+            ),
+            titleMedium: const TextStyle(
+              fontSize: 20.0,
+              fontWeight: FontWeight.bold,
+            ),
+            bodyLarge: const TextStyle(
+              fontSize: 16.0,
+              fontWeight: FontWeight.w600,
             ),
             bodyMedium: const TextStyle(
               fontSize: 14.0,
@@ -43,7 +44,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       // home: const MyHomePage(title: 'Flutter Demo Home Page'),
-      home: const Login(),
+      home: const Profil(),
     );
   }
 }
