@@ -1,6 +1,8 @@
+import 'package:eventation/eventku.dart';
 import 'package:eventation/halaman_login.dart';
 import 'package:eventation/halaman_profil.dart';
 import 'package:eventation/halaman_register.dart';
+import 'package:eventation/list_event.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -44,7 +46,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       // home: const MyHomePage(title: 'Flutter Demo Home Page'),
-      home: const Profil(),
+      home: const Eventku(),
     );
   }
 }
