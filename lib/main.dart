@@ -2,6 +2,7 @@ import 'package:eventation/eventku.dart';
 import 'package:eventation/halaman_login.dart';
 import 'package:eventation/halaman_profil.dart';
 import 'package:eventation/halaman_register.dart';
+import 'package:eventation/jelajahi.dart';
 import 'package:eventation/list_event.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,9 +18,23 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        scaffoldBackgroundColor: Colors.white,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.black,
+          elevation: 0.0,
+          centerTitle: true,
+          titleTextStyle: TextStyle(
+            fontSize: 20.0,
+            fontWeight: FontWeight.bold,
+            color: Colors.black
+          ),
+
+        ),
         textTheme: GoogleFonts.manropeTextTheme(
           Theme.of(context).textTheme.copyWith(
             titleLarge: const TextStyle(
@@ -46,7 +61,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       // home: const MyHomePage(title: 'Flutter Demo Home Page'),
-      home: const Eventku(),
+      home: const Login(),
     );
   }
 }

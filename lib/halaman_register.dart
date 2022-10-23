@@ -43,6 +43,7 @@ class _RegisterState extends State<Register> {
                       children: <Widget>[
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
+                            elevation: 0.0,
                             padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 32.0),
                             fixedSize: const Size(180.0, 46.0),
                             backgroundColor: Colors.white,
@@ -68,6 +69,7 @@ class _RegisterState extends State<Register> {
                         const SizedBox(height: 8.0),
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
+                            elevation: 0.0,
                             padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 32.0),
                             fixedSize: const Size(180.0, 46.0),
                             backgroundColor: Colors.teal,
@@ -93,7 +95,7 @@ class _RegisterState extends State<Register> {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 24),
+                  const SizedBox(height: 36),
                 ],
               ),
             ),
@@ -123,6 +125,7 @@ class _RegisterState extends State<Register> {
               ),
             ),
             TextFormField(
+              style: Theme.of(context).textTheme.bodyLarge,
               obscureText: isPassword,
               keyboardType: type,
               decoration: InputDecoration(

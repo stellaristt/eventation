@@ -7,13 +7,10 @@ class ListEvent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('List Event'),
-        centerTitle: true,
-        elevation: 0.00,
-        backgroundColor: Colors.teal,
+        title: const Text('List Event'),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_rounded),
-          tooltip: 'Menu Icon',
+          tooltip: 'Back',
           onPressed: () {},
         ),
       ),
@@ -23,12 +20,11 @@ class ListEvent extends StatelessWidget {
             padding: const EdgeInsets.all(16),
             child: Column(
               children: [
-                const SizedBox(height: 10),
                 ListView.builder(
-                  physics: ScrollPhysics(),
+                  physics: const ScrollPhysics(),
                   shrinkWrap: true,
                   itemBuilder: (context, index) {
-                    return itemCard(context);
+                    return itemCard(context, index);
                   },
                   itemCount: 10,
                 ),
@@ -40,9 +36,9 @@ class ListEvent extends StatelessWidget {
     );
   }
 
-  Widget itemCard(BuildContext context) {
+  Widget itemCard(BuildContext context, int index) {
     return InkWell(
-      onTap: () => print('tap'),
+      onTap: (){},
       child: Card(
         shape: RoundedRectangleBorder(
           side: BorderSide(
@@ -58,10 +54,10 @@ class ListEvent extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 10),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8),
-                  child: Image.network(
-                    'https://cdn.wallpapersafari.com/66/42/v0cIE7.jpg',
-                    width: 75,
+                  child: Image.asset(
+                    'images/img-$index.jpg',
                     height: 100,
+                    width: 75,
                     fit: BoxFit.cover,
                   ),
                 ),

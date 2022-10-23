@@ -47,6 +47,7 @@ class _LoginState extends State<Login> {
                           ),
                         ),
                         TextFormField(
+                          style: Theme.of(context).textTheme.bodyLarge,
                           keyboardType: TextInputType.emailAddress,
                           decoration: const InputDecoration(
                             border: InputBorder.none,
@@ -80,6 +81,7 @@ class _LoginState extends State<Login> {
                           ),
                         ),
                         TextFormField(
+                          style: Theme.of(context).textTheme.bodyLarge,
                           obscureText: true,
                           decoration: const InputDecoration(
                               border: InputBorder.none,
@@ -132,6 +134,7 @@ class _LoginState extends State<Login> {
                         children: <Widget>[
                           ElevatedButton(
                             style: ElevatedButton.styleFrom(
+                              elevation: 0.0,
                               padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 32.0),
                               fixedSize: const Size(180.0, 46.0),
                               backgroundColor: Colors.white,
@@ -157,6 +160,7 @@ class _LoginState extends State<Login> {
                           const SizedBox(height: 8.0),
                           ElevatedButton(
                             style: ElevatedButton.styleFrom(
+                              elevation: 0.0,
                               padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 32.0),
                               fixedSize: const Size(180.0, 46.0),
                               backgroundColor: Colors.teal,

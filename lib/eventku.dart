@@ -8,20 +8,31 @@ class Eventku extends StatefulWidget {
 }
 
 class _EventkuState extends State<Eventku> with SingleTickerProviderStateMixin {
-  List<String> labels = ['Mendatang', 'Terdahulu'];
+  // List<String> labels = ['Mendatang', 'Terdahulu'];
   int counter = 0;
+
+  late TabController tabController;
+
+  @override
+  void initState() {
+    tabController = TabController(length: 2, vsync: this);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    tabController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('List Event'),
-        centerTitle: true,
-        elevation: 0.00,
-        backgroundColor: Colors.teal,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_rounded),
-          tooltip: 'Menu Icon',
+          tooltip: 'Back',
           onPressed: () {},
         ),
       ),
@@ -29,46 +40,59 @@ class _EventkuState extends State<Eventku> with SingleTickerProviderStateMixin {
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(16),
-            child: Column(
-              children: [
-                const SizedBox(height: 10),
-                // ToggleBar(
-                //   labels: labels,
-                //   textColor: Colors.white,
-                //   selectedTextColor: Colors.black,
-                //   backgroundColor: Colors.teal,
-                //   selectedTabColor: Colors.white,
-                //   onSelectionUpdated: (index) {
-                //     counter = index;
-                //   },
-                // ),
-                Container(
-                  height: 50,
-                  width: 150,
-                  decoration: BoxDecoration(
-                    color: Colors.teal,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.all(5),
-                        child: TabBar(
-                          tabs: [
-                            Tab(
-                              text: 'Terbaru',
+            child: SizedBox(
+              height: MediaQuery.of(context).size.height,
+              child: Column(
+                children: [
+                  Container(
+                    // height: 50,
+                    margin: const EdgeInsets.only(bottom: 8),
+                    width: 240,
+                    decoration: BoxDecoration(
+                      color: Colors.black12,
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(2),
+                          child: TabBar(
+                            controller: tabController,
+                            indicatorColor: Colors.white,
+                            labelColor: Colors.white,
+                            unselectedLabelColor: Colors.black26,
+                            indicator: BoxDecoration(
+                              color: Colors.teal,
+                              borderRadius: BorderRadius.circular(50),
                             ),
-                            Tab(
-                              text: 'Terbaru2',
-                            ),
-                          ],
+                            tabs: const <Widget>[
+                              Tab(
+                                text: 'Mendatang',
+                                height: 32,
+                              ),
+                              Tab(
+                                text: 'Terdahulu',
+                                height: 32,
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-                const SizedBox(height: 10),
-              ],
+                  const SizedBox(height: 10),
+                  // list(),
+                  Expanded(
+                    child:TabBarView(
+                      controller: tabController,
+                      children: const <Widget>[
+                        Tab1(),
+                        Tab2(),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -77,21 +101,42 @@ class _EventkuState extends State<Eventku> with SingleTickerProviderStateMixin {
   }
 }
 
-Widget list(bool option) {
-  print(option);
+class Tab1 extends StatelessWidget {
+  const Tab1({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: list(),
+    );
+  }
+}
+
+class Tab2 extends StatelessWidget {
+  const Tab2({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: list(),
+    );
+  }
+}
+
+Widget list() {
   return ListView.builder(
     physics: const ScrollPhysics(),
     shrinkWrap: true,
     itemBuilder: (context, index) {
-      return itemCard(context);
+      return itemCard(context, index);
     },
     itemCount: 10,
   );
 }
 
-Widget itemCard(BuildContext context) {
+Widget itemCard(BuildContext context, int index) {
   return InkWell(
-    onTap: () => print('tap'),
+    onTap: (){},
     child: Card(
       shape: RoundedRectangleBorder(
         side: BorderSide(
@@ -107,10 +152,10 @@ Widget itemCard(BuildContext context) {
               padding: const EdgeInsets.only(right: 10),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8),
-                child: Image.network(
-                  'https://cdn.wallpapersafari.com/66/42/v0cIE7.jpg',
-                  width: 75,
+                child: Image.asset(
+                  'images/img-$index.jpg',
                   height: 100,
+                  width: 75,
                   fit: BoxFit.cover,
                 ),
               ),

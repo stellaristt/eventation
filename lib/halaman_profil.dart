@@ -6,13 +6,21 @@ class Profil extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Profil'),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_rounded),
+          tooltip: 'Back',
+          onPressed: () {},
+        ),
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Center(
             child: Column(
               children: [
-                const SizedBox(height: 80),
+                const SizedBox(height: 60),
                 Column(
                   children: [
                     Container(
@@ -58,7 +66,7 @@ class Profil extends StatelessWidget {
 
   Widget profileOption(IconData icon, String name, BuildContext context) {
     return InkWell(
-      onTap: () => print('tap'),
+      onTap: (){},
       borderRadius: BorderRadius.circular(12.0),
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 8),
@@ -70,7 +78,7 @@ class Profil extends StatelessWidget {
               width: 50,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
-                color: Colors.grey,
+                color: Colors.black12,
               ),
               child: Icon(icon),
             ),
